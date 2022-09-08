@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+    import { user } from "$lib/stores";
+
+    $: link = $user ? "/account" : "/account/login";
+</script>
+
+<h1>Welcome to 4JN Metal Fabrication Inventory Management System</h1>
+
+<a href={link}> Go to Account </a>
