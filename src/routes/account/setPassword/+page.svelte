@@ -10,7 +10,7 @@
             goto("/account");
         } catch (error) {
             console.log(error);
-            alert("error occured");
+            alert(error.message);
         }
     }
 </script>
