@@ -2,14 +2,22 @@
     import "../app.scss";
     import { supabase } from "$lib/supabaseClient.js";
     import { user } from "$lib/stores.js";
-    import Navbar from "$lib/components/Navbar.svelte";
+    import { onMount } from "svelte";
 
-    user.set(supabase.auth.user());
+    $user = supabase.auth.user();
     supabase.auth.onAuthStateChange((_, session) => {
-        user.set(session?.user);
-        console.log($user);
+        $user = session ? session?.user : null;
+    });
+
+    let show = false;
+
+    onMount(() => {
+        show = true;
     });
 </script>
 
-<Navbar />
-<slot />
+{#if show === false}
+    loading
+{:else}
+    <slot />
+{/if}

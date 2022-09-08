@@ -1,6 +1,5 @@
 <script>
     import { supabase } from "$lib/supabaseClient";
-    import { goto } from "$app/navigation";
 
     let email, password;
 
@@ -11,8 +10,7 @@
                 password,
             });
             if (error) throw error;
-            console.log(data);
-            goto("/account");
+            console.log("login success\nuser info", data);
         } catch (error) {
             console.log(error);
             alert(error.message);
