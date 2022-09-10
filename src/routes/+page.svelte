@@ -1,7 +1,7 @@
 <script>
     import { user } from "$lib/stores";
-    import Dashboard from "../lib/components/Dashboard.svelte";
-    import Login from "../lib/components/Login.svelte";
+    import Dashboard from "$lib/components/Dashboard.svelte";
+    import Login from "$lib/components/Login.svelte";
 </script>
 
 <h3>4JN Metal Fabrication Inventory Management System</h3>
