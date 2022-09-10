@@ -19,7 +19,10 @@
 </script>
 
 <h1>Login</h1>
-<p>if you don't have access yet please contact admin</p>
+<p>for 4JN Employees only</p>
+<p>
+    if you don't have access yet, send contact and send your email to the admin
+</p>
 <form on:submit|preventDefault={login}>
     <input bind:value={email} type="email" placeholder="Email" />
     <input bind:value={password} type="password" placeholder="password" />
