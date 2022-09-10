@@ -2,28 +2,26 @@
 
 > You should have **[Git](https://git-scm.com/downloads)** and **[Node.js](https://nodejs.org/en/download/)**  installed on your computer
 
-1.  Clone this repo by typing the following to your cmd/terminal/bash/powershell/etc
+> terminal can be cmd/terminal/bash/powershell/etc
+
+1.  Clone this repo and move to project folder, copy-paste command below to your terminal
     ```
     git clone https://github.com/dongumayagay/IMS-4JN
-    ```
-    Next after the repo is done cloning, move to the project directory by typing the following to your cmd/terminal/bash/powershell/etc
-    ```
     cd IMS-4JN
+    
     ```
-3. Now that your are in the project directory you have to install the packages the project need.
+3.  Next installing packes.I prefer to insall package using pnpm.
 
-    I prefer to insall package using pnpm. To install **pnpm**(if you don't have it already install)
+    To install **pnpm**(if you don't have it already install) and to install package that project needs using pnpm
 
-    type in your cmd/terminal/bash/powershell/etc
+    copy-paste command below to your terminal
     ```
     npm install -g pnpm
-    ```
-
-    installing packages using pnpm type
-    ```
     pnpm install
+    
     ```
-4. Now that it's ready to run on your computer just type
+4. Now that it's ready to run  copy-paste command below to your terminal
     ```
     pnpm run dev
+    
     ```
