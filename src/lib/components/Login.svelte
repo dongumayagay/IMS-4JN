@@ -28,7 +28,7 @@
         </p>
         <input bind:value={email} type="email" placeholder="Email" />
         <input bind:value={password} type="password" placeholder="password" />
-        <button>Login</button>
+        <input type="submit" value="Login" />
     </form>
 </main>
 
@@ -36,5 +36,14 @@
     main {
         display: grid;
         place-items: center;
+        text-align: center;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    input {
+        width: 200px;
     }
 </style>
