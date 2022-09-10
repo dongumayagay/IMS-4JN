@@ -15,5 +15,19 @@
     }
 </script>
 
-<input bind:value={password} type="password" placeholder="password" />
-<button on:click={setPassword}>set password</button>
+<div>
+    <h3>set your password</h3>
+    <input bind:value={password} type="password" placeholder="password" />
+    <button on:click={setPassword}>set password</button>
+</div>
+
+<style>
+    div {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+</style>
