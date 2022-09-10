@@ -17,7 +17,23 @@
 </script>
 
 {#if show === false}
-    loading
+    <main>
+        <section>
+            <h1>4JN Metal Fabrication Company</h1>
+            <h2>Inventory Management System</h2>
+        </section>
+    </main>
 {:else}
     <slot />
 {/if}
+
+<style>
+    main {
+        height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+    section {
+        text-align: center;
+    }
+</style>

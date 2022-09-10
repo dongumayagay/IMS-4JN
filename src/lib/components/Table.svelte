@@ -1,10 +1,12 @@
 <script>
     import { supabase } from "../../lib/supabaseClient";
     import { onDestroy, onMount } from "svelte";
-    import PopupForm from "./AddPopupForm.svelte";
+    import AddPopupForm from "./AddPopupForm.svelte";
+    import EditPopupForm from "./EditPopupForm.svelte";
 
     let allItems = null;
-    let showAddPopupForm = true;
+    let showAddPopupForm = false;
+    let selectedItem = null;
 
     async function getAllItems() {
         try {
@@ -22,13 +24,17 @@
         .from("items")
         .on("*", async (payload) => {
             console.log("Items table changed", payload);
-            // allItems = await getAllItems();
-            if (payload.eventType === "INSERT") {
+            if (payload.eventType === "INSERT")
                 allItems = [...allItems, payload.new];
+            if (payload.eventType === "UPDATE") {
+                const id = payload.old.id;
+                const itemIndex = allItems.findIndex((item) => item.id == id);
+                allItems[itemIndex] = payload.new;
+                allItems = [...allItems];
             }
-            if (payload.eventType === "DELETE") {
+
+            if (payload.eventType === "DELETE")
                 allItems = allItems.filter((item) => item.id != payload.old.id);
-            }
         })
         .subscribe();
 
@@ -79,7 +85,11 @@
                     }).format(new Date(item.updatedAt))}
                 </td>
                 <td>
-                    <button>update</button>
+                    <button
+                        on:click={() => {
+                            selectedItem = item;
+                        }}>edit</button
+                    >
                 </td>
             </tr>
         {:else}
@@ -88,7 +98,8 @@
     </table>
 {/if}
 
-<PopupForm bind:showAddPopupForm />
+<AddPopupForm bind:showAddPopupForm />
+<EditPopupForm bind:selectedItem />
 
 <style>
     td {
