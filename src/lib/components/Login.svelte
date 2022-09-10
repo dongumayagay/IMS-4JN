@@ -18,13 +18,23 @@
     }
 </script>
 
-<h1>Login</h1>
-<p>for 4JN Employees only</p>
-<p>
-    if you don't have access yet, send contact and send your email to the admin
-</p>
-<form on:submit|preventDefault={login}>
-    <input bind:value={email} type="email" placeholder="Email" />
-    <input bind:value={password} type="password" placeholder="password" />
-    <button>Login</button>
-</form>
+<main>
+    <form on:submit|preventDefault={login}>
+        <h1>Login</h1>
+        <p>for 4JN Employees only</p>
+        <p>
+            if you don't have access yet, send contact and send your email to
+            the admin
+        </p>
+        <input bind:value={email} type="email" placeholder="Email" />
+        <input bind:value={password} type="password" placeholder="password" />
+        <button>Login</button>
+    </form>
+</main>
+
+<style>
+    main {
+        display: grid;
+        place-items: center;
+    }
+</style>
