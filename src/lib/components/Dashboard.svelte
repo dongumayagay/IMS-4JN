@@ -16,6 +16,16 @@
 </script>
 
 <h1>Dashboard</h1>
-<p>{$user.email}</p>
-<button on:click={logout}>logout</button>
+<main>
+    <h4>{$user.email}</h4>
+    <button on:click={logout}>logout</button>
+</main>
 <Table />
+
+<style>
+    main {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+</style>

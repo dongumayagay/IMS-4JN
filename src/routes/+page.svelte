@@ -4,8 +4,6 @@
     import Login from "$lib/components/Login.svelte";
 </script>
 
-<h3>4JN Metal Fabrication Inventory Management System</h3>
-
 {#if $user}
     <Dashboard />
 {:else}
