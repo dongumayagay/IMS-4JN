@@ -1,8 +1,10 @@
 <script>
     import { supabase } from "../../lib/supabaseClient";
     import { onDestroy, onMount } from "svelte";
+    import PopupForm from "./AddPopupForm.svelte";
 
     let allItems = null;
+    let showAddPopupForm = true;
 
     async function getAllItems() {
         try {
@@ -10,7 +12,6 @@
                 .from("items")
                 .select("*");
             if (error) throw error;
-            console.log(items);
             return items;
         } catch (error) {
             console.log(error);
@@ -21,7 +22,10 @@
         .from("items")
         .on("*", async (payload) => {
             console.log("Items table changed", payload);
-            allItems = await getAllItems();
+            // allItems = await getAllItems();
+            if (payload.eventType === "INSERT") {
+                allItems = [...allItems, payload.new];
+            }
         })
         .subscribe();
 
@@ -44,7 +48,11 @@
             <td>unit</td>
             <td>last updated</td>
             <td>
-                <button>add</button>
+                <button
+                    on:click={() => {
+                        showAddPopupForm = true;
+                    }}>add</button
+                >
             </td>
         </tr>
         {#each allItems as item}
@@ -76,6 +84,8 @@
         {/each}
     </table>
 {/if}
+
+<PopupForm bind:showAddPopupForm />
 
 <style>
     td {
