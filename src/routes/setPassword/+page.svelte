@@ -7,7 +7,7 @@
             const { data, error } = await supabase.auth.update({ password });
             if (error) throw error;
             console.log(data);
-            goto("/account");
+            goto("/");
         } catch (error) {
             console.log(error);
             alert(error.message);
