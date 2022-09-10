@@ -20,7 +20,14 @@
     pnpm install
     
     ```
-4. Now that it's ready to run  copy-paste command below to your terminal
+4. create ".env" file on root of your project folder and fillup the variables below from your supabase
+   
+   VITE_SUPABASE_URL=""
+   
+   VITE_SUPABASE_ANON_KEY=""
+   
+    
+5. Now that it's ready to run  copy-paste command below to your terminal
     ```
     pnpm run dev
     
