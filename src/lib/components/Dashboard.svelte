@@ -23,6 +23,9 @@
 <Table />
 
 <style>
+    h1{
+        color: blue
+    }
     main {
         display: flex;
         align-items: center;
