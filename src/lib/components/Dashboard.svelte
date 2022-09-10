@@ -23,6 +23,9 @@
 <Table />
 
 <style>
+    h4{
+        color: red
+    }
     h1{
         color: blue
     }
