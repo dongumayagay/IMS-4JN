@@ -26,6 +26,9 @@
             if (payload.eventType === "INSERT") {
                 allItems = [...allItems, payload.new];
             }
+            if (payload.eventType === "DELETE") {
+                allItems = allItems.filter((item) => item.id != payload.old.id);
+            }
         })
         .subscribe();
 
