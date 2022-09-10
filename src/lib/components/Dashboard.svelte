@@ -1,6 +1,9 @@
 <script>
-    import { supabase } from "$lib/supabaseClient";
+    // import { supabase } from "$lib/supabaseClient";
     import { user } from "$lib/stores";
+    import { supabase } from "../../lib/supabaseClient";
+    import Table from "./Table.svelte";
+
     async function logout() {
         try {
             const { error } = await supabase.auth.signOut();
@@ -15,3 +18,4 @@
 <h1>Dashboard</h1>
 <p>{$user.email}</p>
 <button on:click={logout}>logout</button>
+<Table />
