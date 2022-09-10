@@ -58,9 +58,10 @@
             <td>last updated</td>
             <td>
                 <button
+                class="btn btn-success"
                     on:click={() => {
                         showAddPopupForm = true;
-                    }}>add</button
+                    }}>Add</button
                 >
             </td>
         </tr>
@@ -86,9 +87,10 @@
                 </td>
                 <td>
                     <button
+                    class="btn btn-info"
                         on:click={() => {
                             selectedItem = item;
-                        }}>edit</button
+                        }}>Edit</button
                     >
                 </td>
             </tr>
