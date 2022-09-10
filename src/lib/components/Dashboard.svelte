@@ -18,14 +18,11 @@
 <h1>Dashboard</h1>
 <main>
     <h4>{$user.email}</h4>
-    <button on:click={logout}>logout</button>
+    <button class="btn btn-danger" on:click={logout}>logout</button>
 </main>
 <Table />
 
 <style>
-    h4{
-        color: red
-    }
     h1{
         color: blue
     }
