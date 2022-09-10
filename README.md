@@ -1,38 +1,29 @@
-# create-svelte
+# To run this code on your computer
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+> You should have **[Git](https://git-scm.com/downloads)** and **[Node.js](https://nodejs.org/en/download/)**  installed on your computer
 
-## Creating a project
+1.  Clone this repo by typing the following to your cmd/terminal/bash/powershell/etc
+    ```
+    git clone https://github.com/dongumayagay/IMS-4JN
+    ```
+    Next after the repo is done cloning, move to the project directory by typing the following to your cmd/terminal/bash/powershell/etc
+    ```
+    cd IMS-4JN
+    ```
+3. Now that your are in the project directory you have to install the packages the project need.
 
-If you're seeing this, you've probably already done this step. Congrats!
+    I prefer to insall package using pnpm. To install **pnpm**(if you don't have it already install)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+    type in your cmd/terminal/bash/powershell/etc
+    ```
+    npm install -g pnpm
+    ```
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+    installing packages using pnpm type
+    ```
+    pnpm install
+    ```
+4. Now that it's ready to run on your computer just type
+    ```
+    pnpm run dev
+    ```
