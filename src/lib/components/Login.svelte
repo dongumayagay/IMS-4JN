@@ -23,12 +23,12 @@
         <h1>Login</h1>
         <p>for 4JN Employees only</p>
         <p>
-            if you don't have access yet, send contact and send your email to
+            if you don't have access yet,send your email to
             the admin
         </p>
         <input bind:value={email} type="email" placeholder="Email" />
         <input bind:value={password} type="password" placeholder="password" />
-        <button type="submit">Login </button>
+        <button class="btn btn-primary"  type="submit">Sign in </button>
     </form>
 </main>
 
