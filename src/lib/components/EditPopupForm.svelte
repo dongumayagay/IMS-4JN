@@ -29,6 +29,21 @@
             alert(error.message);
         }
     }
+
+    async function deleteItem() {
+        try {
+            const { data, error } = await supabase
+                .from("items")
+                .delete()
+                .match({ id: selectedItem.id });
+            if (error) throw error;
+            console.log("deleted", data);
+            showEditPopupForm = false;
+        } catch (error) {
+            console.log(error);
+            alert(error.message);
+        }
+    }
 </script>
 
 {#if showEditPopupForm}
@@ -39,7 +54,7 @@
                 <button
                     type="button"
                     on:click={() => (showEditPopupForm = false)}
-                    id="close">x</button
+                    id="close">❌</button
                 >
             </header>
             <input
@@ -70,7 +85,12 @@
                 min="1"
                 value={selectedItem.value}
             />
-            <button type="submit">Edit item</button>
+            <footer>
+                <button on:click={deleteItem} id="delete" type="button"
+                    >Delete</button
+                >
+                <button type="submit">Update</button>
+            </footer>
         </form>
     </main>
 {/if}
@@ -107,13 +127,23 @@
         right: 0;
         top: 0;
         border: none;
-        background-color: red;
-        aspect-ratio: 1/1;
+        background-color: transparent;
     }
     input {
         border: 1px solid black;
         padding: 0.25rem;
         width: 100%;
+    }
+    footer {
+        display: flex;
+        gap: 0.5rem;
+    }
+    #delete {
+        width: 100%;
+        padding: 0.25rem;
+        background-color: red;
+        border: none;
+        color: white;
     }
     button[type="submit"] {
         width: 100%;

@@ -16,6 +16,10 @@
     });
 </script>
 
+<svelte:head>
+    <title>4JN IMS</title>
+</svelte:head>
+
 {#if show === false}
     <main>
         <section>
