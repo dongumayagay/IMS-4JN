@@ -3,7 +3,8 @@
     import { supabase } from "$lib/supabaseClient.js";
     import { user } from "$lib/stores.js";
     import { onMount } from "svelte";
-
+    import { fade } from "svelte/transition";
+    import Loading from "../lib/components/Loading.svelte";
     $user = supabase.auth.user();
     supabase.auth.onAuthStateChange((_, session) => {
         $user = session ? session?.user : null;
@@ -20,24 +21,19 @@
     <title>4JN IMS</title>
 </svelte:head>
 
-{#if show === false}
-    <main>
-        <section>
-            <h1>4JN Metal Fabrication Company</h1>
-            <h2>Inventory Management System</h2>
-        </section>
-    </main>
-{:else}
-    <slot />
-{/if}
+<main>
+    {#if show === false}
+        <Loading />
+    {:else}
+        <div in:fade={{ delay: 400 }}>
+            <slot />
+        </div>
+    {/if}
+</main>
 
 <style>
     main {
+        overflow: hidden;
         height: 100vh;
-        display: grid;
-        place-items: center;
-    }
-    section {
-        text-align: center;
     }
 </style>
