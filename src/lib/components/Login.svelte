@@ -22,13 +22,10 @@
     <form on:submit|preventDefault={login}>
         <h1>Login</h1>
         <p>for 4JN Employees only</p>
-        <p>
-            if you don't have access yet,send your email to
-            the admin
-        </p>
+        <p>if you don't have access yet,send your email to the admin</p>
         <input bind:value={email} type="email" placeholder="Email" />
         <input bind:value={password} type="password" placeholder="password" />
-        <button class="btn btn-primary"  type="submit">Sign in </button>
+        <button class="btn btn-primary" type="submit">Sign in </button>
     </form>
 </main>
 
@@ -37,11 +34,13 @@
         display: grid;
         place-items: center;
         text-align: center;
+        height: 100vh;
     }
     form {
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 0.5rem;
     }
     input {
         width: 200px;
