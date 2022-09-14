@@ -1,5 +1,4 @@
 <script>
-    // import { supabase } from "$lib/supabaseClient";
     import { user } from "$lib/stores";
     import { supabase } from "../../lib/supabaseClient";
     import Table from "./Table.svelte";

@@ -5,6 +5,7 @@
     import { onMount } from "svelte";
     import { fade } from "svelte/transition";
     import Loading from "../lib/components/Loading.svelte";
+    
     $user = supabase.auth.user();
     supabase.auth.onAuthStateChange((_, session) => {
         $user = session ? session?.user : null;
