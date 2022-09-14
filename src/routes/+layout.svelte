@@ -25,14 +25,21 @@
     {#if show === false}
         <Loading />
     {:else}
-        <div in:fade={{ delay: 400 }}>
+        <div in:fade>
             <slot />
         </div>
     {/if}
 </main>
 
 <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
     main {
+        font-family: "Poppins", sans-serif; 
+        background : #0A1A4E;
         overflow: hidden;
         height: 100vh;
     }
