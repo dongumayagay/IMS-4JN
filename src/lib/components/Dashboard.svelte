@@ -1,6 +1,7 @@
 <script>
     import { user } from "$lib/stores";
     import { supabase } from "../../lib/supabaseClient";
+    import Sidebar from "./Sidebar.svelte";
     import Table from "./Table.svelte";
 
     async function logout() {
@@ -14,6 +15,7 @@
     }
 </script>
 
+<Sidebar/>
 <main>
     <h1>Dashboard</h1>
     <div>
