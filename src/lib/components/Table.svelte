@@ -8,6 +8,7 @@
     let showAddPopupForm = false;
     let selectedItem = null;
 
+    // function to get all items from the database
     async function getAllItems() {
         try {
             let { data: items, error } = await supabase
@@ -20,28 +21,33 @@
         }
     }
 
+    // listen to changes to items table
     const itemsTableRealtimeListener = supabase
         .from("items")
         .on("*", async (payload) => {
             console.log("Items table changed", payload);
+            // if there is a new item update UI to add the new Item as well
             if (payload.eventType === "INSERT")
                 allItems = [...allItems, payload.new];
+            // if an item is updated. find the corresponding item in the list and change the value to reflect the changes as well
             if (payload.eventType === "UPDATE") {
                 const id = payload.old.id;
                 const itemIndex = allItems.findIndex((item) => item.id == id);
                 allItems[itemIndex] = payload.new;
                 allItems = [...allItems];
             }
-
+            // if item is deleted on the databse, delete that item on the UI as well
             if (payload.eventType === "DELETE")
                 allItems = allItems.filter((item) => item.id != payload.old.id);
         })
         .subscribe();
 
     onMount(async () => {
+        // on mounting of this component call the getAllItem to get all the items from the databse
         allItems = await getAllItems();
     });
     onDestroy(() => {
+        // on destrooy of this component unsuscribe to realtime changes for both client and server cost effiiciency
         itemsTableRealtimeListener.unsubscribe();
     });
 </script>
@@ -58,7 +64,7 @@
             <td>last updated</td>
             <td>
                 <button
-                class="btn btn-success"
+                    class="btn btn-success"
                     on:click={() => {
                         showAddPopupForm = true;
                     }}>Add</button
@@ -87,7 +93,7 @@
                 </td>
                 <td>
                     <button
-                    class="btn btn-info"
+                        class="btn btn-info"
                         on:click={() => {
                             selectedItem = item;
                         }}>Edit</button
