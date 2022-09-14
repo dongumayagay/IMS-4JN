@@ -15,10 +15,13 @@
     }
 </script>
 
-<div>
-    <h3>set your password</h3>
-    <input bind:value={password} type="password" placeholder="password" />
-    <button on:click={setPassword}>set password</button>
+<div class="main">
+    <div class="container">
+        <h3>Set your Password</h3>
+        <input bind:value={password} type="password" placeholder="Password" />
+        <button on:click={setPassword}>Submit</button>
+    </div>
+    
 </div>
 
 <style>
@@ -29,5 +32,10 @@
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
+    }
+    .container {
+        width: 60vh;
+        height: 27vw;
+        background: #ffff;
     }
 </style>
