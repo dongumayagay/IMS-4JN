@@ -5,8 +5,7 @@
 </script>
 
 {#if $user}
-    <Dashboard />
+    <Dashboard/>
 {:else}
-
-    <Login /> 
+    <Login/> 
 {/if}

@@ -5,6 +5,7 @@
     import { onMount } from "svelte";
     import { fade } from "svelte/transition";
     import Loading from "../lib/components/Loading.svelte";
+    import Sidebar from "../lib/components/Sidebar.svelte";
     
     $user = supabase.auth.user();
     supabase.auth.onAuthStateChange((_, session) => {
@@ -27,6 +28,7 @@
         <Loading />
     {:else}
         <div in:fade>
+            <Sidebar/>
             <slot />
         </div>
     {/if}
