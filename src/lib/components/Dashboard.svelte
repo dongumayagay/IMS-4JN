@@ -1,6 +1,6 @@
 <script>
     import { user } from "$lib/stores";
-    import { supabase } from "../../lib/supabaseClient";
+    import { supabase } from "../supabaseClient"
     import Table from "./Table.svelte";
 
     async function logout() {

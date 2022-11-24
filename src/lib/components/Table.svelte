@@ -1,5 +1,5 @@
 <script>
-    import { supabase } from "../../lib/supabaseClient";
+    import { supabase } from "../supabaseClient";
     import { onDestroy, onMount } from "svelte";
     import AddPopupForm from "./AddPopupForm.svelte";
     import EditPopupForm from "./EditPopupForm.svelte";
